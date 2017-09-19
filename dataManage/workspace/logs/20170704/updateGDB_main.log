@@ -1,0 +1,129 @@
+2017-07-04 22:19:55,607 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:19:56,071 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:20:14,838 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:20:16,430 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:20:27,000 - WARNING - 
+2017-07-04 22:20:28,045 - WARNING - Traceback (most recent call last):
+  File "E:/python_project/CMB-Py/dataManage/serverHandler/updateGDBHandler.py", line 35, in ConvertGDB
+    shutil.copytree(gdbServerPath, gdbPath)
+  File "C:\Python27\ArcGIS10.2\lib\shutil.py", line 175, in copytree
+    os.makedirs(dst)
+  File "C:\Python27\ArcGIS10.2\lib\os.py", line 157, in makedirs
+    mkdir(name, mode)
+WindowsError: [Error 183] : 'C:\\Users\\esri\\Desktop\\output\\customer.gdb'
+
+2017-07-04 22:20:32,022 - INFO - convert error!
+2017-07-04 22:21:14,917 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:21:16,191 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:22:04,808 - WARNING - 分析文件C:\Users\esri\Desktop\customer100005出错！
+2017-07-04 22:22:04,809 - WARNING - Traceback (most recent call last):
+  File "E:/python_project/CMB-Py/dataManage/serverHandler\arcpyOp.py", line 105, in insertRow_Point
+    insertCursor.insertRow(insertValues)
+RuntimeError: The value type is incompatible with the field type. [X]
+
+2017-07-04 22:22:04,809 - WARNING - The value type is incompatible with the field type. [X]
+2017-07-04 22:22:04,828 - INFO - convert success!
+2017-07-04 22:23:33,851 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:23:38,430 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:23:55,219 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:23:57,903 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:24:50,450 - WARNING - 分析文件C:\Users\esri\Desktop\customer100005出错！
+2017-07-04 22:24:50,453 - WARNING - Traceback (most recent call last):
+  File "E:/python_project/CMB-Py/dataManage/serverHandler\arcpyOp.py", line 105, in insertRow_Point
+    insertCursor.insertRow(insertValues)
+RuntimeError: The value type is incompatible with the field type. [X]
+
+2017-07-04 22:24:50,453 - WARNING - The value type is incompatible with the field type. [X]
+2017-07-04 22:24:50,519 - INFO - convert success!
+2017-07-04 22:25:09,480 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:25:22,513 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:26:27,438 - WARNING - 分析文件C:\Users\esri\Desktop\customer100005出错！
+2017-07-04 22:26:29,500 - WARNING - Traceback (most recent call last):
+  File "E:/python_project/CMB-Py/dataManage/serverHandler\arcpyOp.py", line 105, in insertRow_Point
+    insertCursor.insertRow(insertValues)
+RuntimeError: The value type is incompatible with the field type. [X]
+
+2017-07-04 22:26:30,331 - WARNING - The value type is incompatible with the field type. [X]
+2017-07-04 22:26:31,586 - INFO - convert success!
+2017-07-04 22:29:11,654 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:29:13,871 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:29:30,634 - WARNING - 分析文件C:\Users\esri\Desktop\customer100005出错！
+2017-07-04 22:29:30,638 - WARNING - Traceback (most recent call last):
+  File "E:/python_project/CMB-Py/dataManage/serverHandler\arcpyOp.py", line 105, in insertRow_Point
+    insertCursor.insertRow(insertValues)
+RuntimeError: The value type is incompatible with the field type. [X]
+
+2017-07-04 22:29:30,638 - WARNING - The value type is incompatible with the field type. [X]
+2017-07-04 22:29:30,670 - INFO - convert success!
+2017-07-04 22:29:44,171 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:29:46,193 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:31:47,372 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:31:50,713 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:32:42,194 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog
+2017-07-04 22:32:42,194 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:32:47,989 - WARNING - 分析文件C:\Users\esri\Desktop\customer100005出错！
+2017-07-04 22:32:47,990 - WARNING - Traceback (most recent call last):
+  File "E:\python_project\CMB-Py\dataManage\serverHandler\arcpyOp.py", line 105, in insertRow_Point
+    insertCursor.insertRow(insertValues)
+RuntimeError: The value type is incompatible with the field type. [X]
+
+2017-07-04 22:32:47,990 - WARNING - The value type is incompatible with the field type. [X]
+2017-07-04 22:32:47,993 - INFO - convert success!
+2017-07-04 22:33:11,887 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:33:12,543 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:34:53,724 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:34:54,717 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:35:36,904 - INFO - convert success!
+2017-07-04 22:37:08,980 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:37:16,112 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:38:46,387 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog
+2017-07-04 22:38:46,388 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:38:51,993 - INFO - convert success!
+2017-07-04 22:39:18,010 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog
+2017-07-04 22:39:18,010 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:39:23,448 - INFO - convert success!

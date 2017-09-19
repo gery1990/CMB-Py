@@ -1,0 +1,6 @@
+2017-07-04 17:58:25,025 - INFO - PID(11472) convert GDB:customer1000051
+2017-07-04 17:58:32,278 - WARNING - Traceback (most recent call last):
+  File "E:\python_project\CMB-Py\dataManage\serverHandler\largeGDBHandler.py", line 62, in mapProcess
+    mapLog.info(u'PID(%s) convert GDB:%s  %s   Done' % (os.getpid(), ','.join(extent), fileName))
+TypeError: sequence item 0: expected string, float found
+

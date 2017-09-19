@@ -1,0 +1,95 @@
+2017-07-18 23:51:10,680 - main - INFO - =========================================
+2017-07-18 23:51:10,680 - main - INFO - start Data handling...
+2017-07-18 23:51:11,690 - main - WARNING - Traceback (most recent call last):
+  File "E:\python_project\CMB-Py\dataManage\common\ParamikoHandle.py", line 46, in ssh_connect
+    _ssh_fd.connect(_host, username=_username, password=_password)
+  File "C:\Python27\ArcGIS10.2\lib\site-packages\paramiko\client.py", line 329, in connect
+    raise NoValidConnectionsError(errors)
+NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 127.0.0.1
+
+2017-07-18 23:51:11,691 - main - ERROR - Traceback (most recent call last):
+  File "E:\python_project\CMB-Py\dataManage\common\ParamikoHandle.py", line 35, in __init__
+    self.logger.warning(u"IP：%s:%s can not connect" % (serverInfo[0], serverInfo[1]))
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+2017-07-18 23:51:11,696 - main - INFO - execute GDB convert, file name :customer
+2017-07-18 23:51:11,716 - main - INFO - file row count:9645
+2017-07-18 23:51:11,717 - main - INFO - begin cut file......
+2017-07-18 23:51:12,023 - main - INFO - cut success, total:17
+2017-07-18 23:51:13,983 - main - INFO - GDB convert failed, file name :customer
+2017-07-18 23:51:13,983 - main - INFO - execute GDB update, file name :customer
+2017-07-18 23:51:13,983 - main - WARNING - exec /home/arcgis/arcgis/server/tools/pythoon /home/arcgis/dataManage/serverHandler\MsHandler_update.py sales customer D:\dataHandle\GISData\gdb\sales\20170718\customer D:\dataHandle\GISData\arcgisserver\gdb\sales\customer 99.12.95.182 6080 arcgis arcgis
+2017-07-18 23:51:13,984 - main - WARNING - Traceback (most recent call last):
+  File "E:\python_project\CMB-Py\dataManage\common\ParamikoHandle.py", line 55, in ssh_exec_cmd
+    stdin, stdout, stderr = self._ssh_fd.exec_command(_cmd)
+AttributeError: SSHControl instance has no attribute '_ssh_fd'
+
+2017-07-18 23:51:13,984 - main - INFO - GDB update failed, file name :customer
+2017-07-18 23:51:13,984 - main - WARNING - Traceback (most recent call last):
+  File "E:/python_project/CMB-Py/dataManage/main.py", line 106, in <module>
+    sshClient.ssh_close()
+  File "E:\python_project\CMB-Py\dataManage\common\ParamikoHandle.py", line 70, in ssh_close
+    self._ssh_fd.close()
+AttributeError: SSHControl instance has no attribute '_ssh_fd'
+
+2017-07-18 23:51:13,986 - main - INFO - data handling error exit
+2017-07-18 23:52:07,607 - main - INFO - =========================================
+2017-07-18 23:52:07,607 - main - INFO - start Data handling...
+2017-07-18 23:52:18,181 - main - INFO - execute GDB convert, file name :customer
+2017-07-18 23:52:18,191 - main - INFO - file row count:9645
+2017-07-18 23:52:18,193 - main - INFO - begin cut file......
+2017-07-18 23:52:18,303 - main - INFO - cut success, total:17
+2017-07-18 23:52:25,525 - main - INFO - GDB convert failed, file name :customer
+2017-07-18 23:52:25,525 - main - INFO - execute GDB update, file name :customer
+2017-07-18 23:52:25,619 - main - WARNING - bash: /home/arcgis/arcgis/server/tools/pythoon: No such file or directory
+
+2017-07-18 23:52:25,619 - main - INFO - GDB update failed, file name :customer
+2017-07-18 23:52:25,730 - main - INFO - data handling done，times：0:00:18.122000
+2017-07-18 23:53:12,007 - main - INFO - =========================================
+2017-07-18 23:53:12,007 - main - INFO - start Data handling...
+2017-07-18 23:53:21,369 - main - INFO - execute GDB convert, file name :customer
+2017-07-18 23:53:21,377 - main - INFO - file row count:9645
+2017-07-18 23:53:21,377 - main - INFO - begin cut file......
+2017-07-18 23:53:21,461 - main - INFO - cut success, total:17
+2017-07-18 23:53:27,438 - main - INFO - GDB convert failed, file name :customer
+2017-07-18 23:53:27,438 - main - INFO - execute GDB update, file name :customer
+2017-07-18 23:53:27,483 - main - WARNING - bash: /home/arcgis/arcgis/server/tools/pythoon: No such file or directory
+
+2017-07-18 23:53:27,483 - main - INFO - GDB update failed, file name :customer
+2017-07-18 23:53:27,484 - main - INFO - data handling done，times：0:00:15.477000
+2017-07-18 23:57:23,301 - main - INFO - =========================================
+2017-07-18 23:57:23,301 - main - INFO - start Data handling...
+2017-07-18 23:57:25,496 - main - INFO - execute GDB convert, file name :customer
+2017-07-18 23:57:25,507 - main - INFO - file row count:9645
+2017-07-18 23:57:25,509 - main - INFO - begin cut file......
+2017-07-18 23:57:26,918 - main - INFO - cut success, total:17
+2017-07-18 23:57:32,622 - main - INFO - GDB convert failed, file name :customer
+2017-07-18 23:57:32,622 - main - INFO - execute GDB update, file name :customer
+2017-07-18 23:57:32,825 - main - WARNING - bash: /home/arcgis/arcgis/server/tools/pythoon: No such file or directory
+
+2017-07-18 23:57:32,825 - main - INFO - GDB update failed, file name :customer
+2017-07-18 23:57:32,832 - main - INFO - data handling done，times：0:00:09.529000
+2017-07-18 23:59:47,309 - main - INFO - =========================================
+2017-07-18 23:59:47,309 - main - INFO - start Data handling...
+2017-07-18 23:59:53,108 - main - INFO - execute GDB convert, file name :customer
+2017-07-18 23:59:53,115 - main - INFO - file row count:9645
+2017-07-18 23:59:53,117 - main - INFO - begin cut file......
+2017-07-18 23:59:53,198 - main - INFO - cut success, total:17
+2017-07-18 23:59:58,134 - main - INFO - GDB convert failed, file name :customer
+2017-07-18 23:59:58,134 - main - INFO - execute GDB update, file name :customer
+2017-07-18 23:59:58,174 - main - WARNING - bash: /home/arcgis/arcgis/server/tools/pythoon: No such file or directory
+
+2017-07-18 23:59:58,174 - main - INFO - GDB update failed, file name :customer
+2017-07-18 23:59:58,177 - main - INFO - data handling done，times：0:00:10.868000
+2017-07-19 00:01:47,500 - main - INFO - =========================================
+2017-07-19 00:01:47,500 - main - INFO - start Data handling...
+2017-07-19 00:01:51,555 - main - INFO - execute GDB convert, file name :customer
+2017-07-19 00:01:51,572 - main - INFO - file row count:9645
+2017-07-19 00:01:51,573 - main - INFO - begin cut file......
+2017-07-19 00:01:51,677 - main - INFO - cut success, total:17
+2017-07-19 00:01:57,464 - main - INFO - GDB convert failed, file name :customer
+2017-07-19 00:01:57,464 - main - INFO - execute GDB update, file name :customer
+2017-07-19 00:01:57,528 - main - WARNING - bash: /home/arcgis/arcgis/server/tools/pythoon: No such file or directory
+
+2017-07-19 00:01:57,528 - main - INFO - GDB update failed, file name :customer
+2017-07-19 00:01:57,532 - main - INFO - data handling done，times：0:00:10.032000

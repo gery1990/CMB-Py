@@ -1,0 +1,35 @@
+2017-07-04 21:54:41,933 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog
+2017-07-04 21:54:41,933 - INFO - all convert GDB sourceFile:C:\Users\esri\Desktop\customer100005
+2017-07-04 21:54:50,947 - INFO - convert success!
+2017-07-04 21:55:28,891 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog
+2017-07-04 21:55:28,891 - INFO - all convert GDB sourceFile:C:\Users\esri\Desktop\customer100005
+2017-07-04 21:55:37,013 - INFO - convert success!
+2017-07-04 22:18:24,529 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog
+2017-07-04 22:18:24,529 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005
+2017-07-04 22:18:29,042 - WARNING - "C:\Users\esri\Desktop\output\customer.gdb\customer" does not exist
+2017-07-04 22:18:29,043 - WARNING - Traceback (most recent call last):
+  File "E:/python_project/CMB-Py/dataManage/serverHandler/updateGDBHandler.py", line 34, in ConvertGDB
+    layerFields = ac.getLayerFields(layerPath)
+  File "E:\python_project\CMB-Py\dataManage\serverHandler\arcpyOp.py", line 138, in getLayerFields
+    fieldsObj = arcpy.ListFields(layerPath)
+  File "C:\Program Files (x86)\ArcGIS\Desktop10.2\arcpy\arcpy\__init__.py", line 1119, in ListFields
+    return gp.listFields(dataset, wild_card, field_type)
+  File "C:\Program Files (x86)\ArcGIS\Desktop10.2\arcpy\arcpy\geoprocessing\_base.py", line 344, in listFields
+    self._gp.ListFields(*gp_fixargs(args, True)))
+IOError: "C:\Users\esri\Desktop\output\customer.gdb\customer" does not exist
+
+2017-07-04 22:18:29,043 - INFO - convert error!
+2017-07-04 22:18:42,983 - INFO - start convert GDB...
+                   source File Path:C:\Users\esri\Desktop\customer100005
+                   output Path:C:\Users\esri\Desktop\output
+                   log Path:E:/python_project/CMB-Py/dataManage\workspace\processLog
+2017-07-04 22:19:14,101 - INFO - update GDB soucefile:C:\Users\esri\Desktop\customer100005

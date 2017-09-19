@@ -1,0 +1,61 @@
+<config>
+    <fileTypes>
+        <fileType description="客户访问频次数据,fields的值需要全部大写" id="customer" serverName="customertest" uniqueId="0"
+                  hasXY="true"
+                  addrField="" x="2" y="1" updateModel="all" type="sales" cutGDB="true"
+                  templatePath="/data/dataHandle/customer50000000111"
+                  fields="UID,T1,T7,T30,T90,T180,BANKID1,BANKID2,AGE,SEX,ASSETS_DIS,BANKCARD_D,BRANCHID,X,Y"
+                  sourceFolder="" encode="utf-8"
+                  processNum="4" layersNum="100" convertSr = 'none'>customer
+        </fileType>
+        <fileType description="客户访问频次数据,fields的值需要全部大写" id="customer" serverName="customertest" uniqueId="0"
+                  hasXY="true"
+                  addrField="" x="2" y="1" updateModel="all" type="sales" cutGDB="false"
+                  templatePath="/data/dataHandle/customer50000000111"
+                  fields="UID,T1,T7,T30,T90,T180,BANKID1,BANKID2,AGE,SEX,ASSETS_DIS,BANKCARD_D,BRANCHID,X,Y"
+                  sourceFolder="" encode="utf-8"
+                  processNum="4" layersNum="100" convertSr = '4326,3857'>customer
+        </fileType>
+        <fileType description="潜在客户数据新增,fields的值需要全部大写" id="client_add" serverName="clientdata" uniqueId="0" hasXY="true"
+                  addrField="1" x="" y="" updateModel="add" type="crm" cutGDB="true"
+                  templatePath="C:\Users\LocalUser\Desktop\client"
+                  fields='CID,CITY,CNAME,CDATE,CADDRESS,CCAPITAL,CARTIFICIA,CTELEPHONE,CPHONE,CBUSITYPE,X,Y,BZ1,BZ2' encode="utf-8" >client_add
+        </fileType>
+        <fileType description="潜在客户数据修改,fields的值需要全部大写" id="client_update" serverName="client" uniqueId="0"
+                  hasXY="false"
+                  addrField="1" x="" y="" updateModel="update" type="crm" cutGDB="false"
+                  templatePath="D:\dataHandle\GISData\template.gdb\client"
+                  fields='ID,ADDRESS,BZ' encode="utf-8">client_update
+        </fileType>
+    </fileTypes>
+    <serverList description="ArcGIS Server集群服务器，用于业务数据入库负载均衡处理">
+        <server id="server1" ip="192.168.119.134" port="22" user="arcgis" password="esri123">server1</server>
+    </serverList>
+    <gdbWorkspace>D:\dataHandle\GISData\gdb</gdbWorkspace>
+    <geocodeWorkspace>D:\dataHandle\GISData\geocode</geocodeWorkspace>
+    <originalWorkspace>D:\dataHandle\GISData\originaldata</originalWorkspace>
+    <gisserverGDB>D:\dataHandle\GISData\arcgisserver\gdb</gisserverGDB>
+    <templateMxd>template.mxd</templateMxd>
+    <wgs84proj>wgs84.prj</wgs84proj>
+    <agsServerPath>arcgis on 192.168.119.134_6080 (admin).ags</agsServerPath>
+    <arcgisserver description="需要配置集群地址">
+        <ip>99.12.95.182</ip>
+        <port>6080</port>
+        <user>arcgis</user>
+        <password>arcgis</password>
+    </arcgisserver>
+    <balanceStatus description="负载均衡状态文件">D:\dataHandle\GISData\balance.csv</balanceStatus>
+    <ftppath description="会员文件存放ftp路径">127.0.0.1 21 esri 89603183</ftppath>
+    <geocode>
+        <url>http://99.12.95.183:8080/GT/rest/services/singleservice/single?</url>
+        <encode>UTF-8</encode>
+        <wkid>4326</wkid>
+    </geocode>
+    <maxGDBRecodeCount>2000</maxGDBRecodeCount>
+    <processNum description="进程数量-地理编码">4</processNum>
+    <threadNum description="线程数量">1</threadNum>
+    <minscore description="上图的分值限制">70</minscore>
+    <datalimit description="数据保存天数">7</datalimit>
+    <pythonTools>/home/arcgis/arcgis/server/tools/pythoon</pythonTools>
+    <serverPythonWorkspace>/home/arcgis/dataManage/serverHandler</serverPythonWorkspace>
+</config>

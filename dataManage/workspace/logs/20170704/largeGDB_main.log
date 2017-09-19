@@ -1,0 +1,15 @@
+2017-07-04 17:58:11,887 - INFO - start convert GDB...
+2017-07-04 17:58:11,887 - INFO - source File Path:C:\Users\esri\Desktop\customer100005
+2017-07-04 17:58:11,887 - INFO - output Path:C:\Users\esri\Desktop\output
+2017-07-04 17:58:11,887 - INFO - process Count:2
+2017-07-04 17:58:11,888 - INFO - log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog
+2017-07-04 18:02:19,430 - INFO - start convert GDB...
+2017-07-04 18:02:19,430 - INFO - source File Path:C:\Users\esri\Desktop\customer100005
+2017-07-04 18:02:19,430 - INFO - output Path:C:\Users\esri\Desktop\output
+2017-07-04 18:02:19,430 - INFO - process Count:2
+2017-07-04 18:02:19,430 - INFO - log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog
+2017-07-04 18:06:05,767 - INFO - start convert GDB...
+    source File Path:C:\Users\esri\Desktop\customer100005
+    output Path:C:\Users\esri\Desktop\output
+    process Count:2
+    log Path:E:\python_project\CMB-Py\dataManage\workspace\processLog

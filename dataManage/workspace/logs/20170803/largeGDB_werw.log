@@ -1,0 +1,52 @@
+2017-08-03 19:42:30,209 - INFO - start convert GDB...
+                   source File Path:D:\20170701
+                   output GDBPath:C:\Users\LocalUser\Desktop\test\customertest.gdb
+                   log Path:D:\python_project\CMB-Py\dataManage\workspace\logs
+2017-08-03 19:42:30,210 - INFO - insertLarge_GDB ** convert file:customertestcustomertest
+2017-08-03 19:42:32,223 - WARNING - Traceback (most recent call last):
+  File "D:\python_project\CMB-Py\dataManage\serverHandler\arcpyControl\arcpyOp.py", line 97, in insertRow_Point
+    layerFields = getLayerFields(layerPath)
+  File "D:\python_project\CMB-Py\dataManage\serverHandler\arcpyControl\arcpyOp.py", line 185, in getLayerFields
+    fieldsObj = arcpy.ListFields(layerPath)
+  File "C:\Program Files (x86)\ArcGIS\Desktop10.4\ArcPy\arcpy\__init__.py", line 1138, in ListFields
+    return gp.listFields(dataset, wild_card, field_type)
+  File "C:\Program Files (x86)\ArcGIS\Desktop10.4\ArcPy\arcpy\geoprocessing\_base.py", line 346, in listFields
+    self._gp.ListFields(*gp_fixargs(args, True)))
+IOError: <unprintable IOError object>
+
+2017-08-03 19:42:35,894 - WARNING - list index out of range
+2017-08-03 19:42:35,894 - WARNING - Traceback (most recent call last):
+  File "D:/python_project/CMB-Py/dataManage/serverHandler/InsertGDB_large2.py", line 84, in buildExtentLayer
+    xmax = extent[0]
+IndexError: list index out of range
+
+2017-08-03 19:42:35,894 - WARNING - list index out of range
+2017-08-03 19:42:35,894 - WARNING - Traceback (most recent call last):
+  File "D:/python_project/CMB-Py/dataManage/serverHandler/InsertGDB_large2.py", line 65, in buildGDB
+    buildExtentLayer(gdbPath, os.path.join(runWorkspace, 'workspace', 'wgs84.prj'), extentL)
+  File "D:/python_project/CMB-Py/dataManage/serverHandler/InsertGDB_large2.py", line 84, in buildExtentLayer
+    xmax = extent[0]
+IndexError: list index out of range
+
+2017-08-03 19:42:35,894 - INFO - insertLarge_GDB ** convert error pid(werw)!
+2017-08-03 19:43:01,326 - INFO - start convert GDB...
+                   source File Path:D:\20170701
+                   output GDBPath:C:\Users\LocalUser\Desktop\test\customertest.gdb
+                   log Path:D:/python_project/CMB-Py/dataManage\workspace\logs
+2017-08-03 19:43:48,401 - INFO - start convert GDB...
+                   source File Path:D:\20170701
+                   output GDBPath:C:\Users\LocalUser\Desktop\test\customertest.gdb
+                   log Path:D:\python_project\CMB-Py\dataManage\workspace\logs
+2017-08-03 19:43:48,401 - INFO - insertLarge_GDB ** convert file:customertest1
+2017-08-03 19:43:59,401 - WARNING - Traceback (most recent call last):
+  File "D:\python_project\CMB-Py\dataManage\serverHandler\arcpyControl\arcpyOp.py", line 177, in insertExtentFeature
+    inserCursor.insertRow([layerName, index, xmax, xmin, ymax, ymin, geo])
+SystemError: error return without exception set
+
+2017-08-03 19:43:59,407 - INFO - insertLarge_GDB ** convert success pid(werw)!
+2017-08-03 19:45:25,549 - INFO - start convert GDB...
+                   source File Path:D:\20170701
+                   output GDBPath:C:\Users\LocalUser\Desktop\test\customertest.gdb
+                   log Path:D:\python_project\CMB-Py\dataManage\workspace\logs
+2017-08-03 19:45:25,549 - INFO - insertLarge_GDB ** convert file:customertest1
+2017-08-03 19:45:35,075 - INFO - insertLarge_GDB ** convert success pid(werw)!
