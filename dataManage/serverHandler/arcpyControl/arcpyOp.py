@@ -176,7 +176,6 @@ def insertRow_Point(layerPath, sourceFile, x, y, csvFields, fileEncode, convertS
         logging.warning(traceback.format_exc())
         return []
 
-
 def insertExtentFeature(layerPath, layerName, index, xmax, xmin, ymax, ymin, logging):
     try:
         fields = ["LAYERNAME", "INDEX", "XMAX", "XMIN", "YMAX", "YMIN", "SHAPE@"]
