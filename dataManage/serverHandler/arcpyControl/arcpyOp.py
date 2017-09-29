@@ -3,7 +3,6 @@ import arcpy, os, traceback, codecs
 
 FIELD_DEL = chr(0X7C) + chr(0X1C)  # 标准文件字段分隔符
 
-
 # 设置工作空间
 def setWorkSpace(path):
     arcpy.env.workspace = path
@@ -218,7 +217,7 @@ def deleteRow(layerPath, sourceFile, uniqueId, uniqueFieldName):
 
     with arcpy.da.UpdateCursor(layerPath, (uniqueFieldName,)) as cursor:
         for row in cursor:
-            if row[0] in idList:
+            if str(row[0]) in idList:
                 cursor.deleteRow()
         del cursor
 
@@ -275,7 +274,11 @@ def sortLayer(in_dataset, out_dataset, sort_field, spatial_sort_method=None):
 def deleteRows(in_rows):
     arcpy.DeleteRows_management(in_rows)
 
+def spatialJoin(target_features, join_features, out_feature_class, join_operation, join_type=None, field_mapping=None, match_option=None,search_radius=None, distance_field_name=None):
+    arcpy.SpatialJoin_analysis(target_features, join_features, out_feature_class, join_operation, join_type, field_mapping, match_option,search_radius, distance_field_name)
 
+def updateCursor(in_table, field_names,where_clause=None, spatial_reference=None, explode_to_points=None, sql_clause=None):
+    return arcpy.da.UpdateCursor(in_table, field_names, where_clause, spatial_reference, explode_to_points, sql_clause)
 if __name__ == '__main__':
     try:
         values = getLayerFields(r'C:\Users\esri\Desktop\clientdata.gdb\clientdata_1')

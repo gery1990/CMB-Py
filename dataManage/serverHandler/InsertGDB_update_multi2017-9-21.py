@@ -6,6 +6,7 @@ import shutil
 import sys
 import time
 import traceback
+
 from arcpyControl import arcpyOp as ac
 
 runWorkspace = os.path.split(sys.path[0])[0]
@@ -72,13 +73,12 @@ def deleteFeaturesBySelected(layerPath, layerName, ids):
 def ConvertGDB(sourceFilePath, outputGDBPath, serverGDBPath, serverName, x, y, uniqueId,
                updateModel, sourceFileFields, fileEncode, convertSr):
     try:
-        logger.info('Step 1: insertUpdate ** update GDB soucefile:%s' % sourceFilePath)
+        logger.info('insertUpdate ** update GDB soucefile:%s' % sourceFilePath)
 
         gdbPath = os.path.join(outputGDBPath, serverName + ".gdb")
-        gdbServerPath = os.path.join(serverGDBPath, serverName + ".gdb")
         gdbPath_temp = os.path.join(outputGDBPath, "tempdata.gdb")
+        gdbServerPath = os.path.join(serverGDBPath, serverName + ".gdb")
 
-        tempSpatialJoinPath = os.path.join(gdbPath_temp, "spatialjoin")
         tempLayerPath = os.path.join(gdbPath_temp, "tempdata")
         tableViewPath = os.path.join(gdbPath, "tableview")
 
@@ -90,9 +90,24 @@ def ConvertGDB(sourceFilePath, outputGDBPath, serverGDBPath, serverName, x, y, u
         # 将旧的GDB拷贝到临时gdb路径
         shutil.copytree(gdbServerPath, gdbPath)
 
-        #更新模式，先删除gdb、tableview里旧的记录
+        # 构建临时存储gdb
+        logger.info('build tempGDB...')
+        ac.createFileGDB(outputGDBPath, "tempdata.gdb")
+        layerFields = ac.getLayerFields(os.path.join(gdbPath, "clientdata130"))
+        fieldsMap = {}
+        for layerField in layerFields:
+            if layerField["name"] == "SHAPE@": continue
+            fieldsMap[layerField["name"]] = layerField["type"]
+        proNum = 3857
+        if convertSr.upper() != "NONE" and convertSr != "":
+            proNum = int(convertSr.split(",")[1])
+        ac.createLayer(gdbPath_temp, "tempdata", proNum, "POINT", fieldsMap)
+        ac.insertRow_Point(tempLayerPath, sourceFilePath, x, y, sourceFileFields, fileEncode, convertSr, logger)
+        ac.splitLayer(tempLayerPath, os.path.join(gdbPath, "extent"), "name", gdbPath_temp)
+        ac.deleteLayer(tempLayerPath)
+
         if updateModel == "update":
-            logger.info('Step 2: update gdb...')
+            logger.info('update layer...')
             tableTemp = serverName + "tabletemp"
             # 获取需要更新的记录具体图层位置并删除
             ac.makeTableView(tableViewPath, tableTemp)
@@ -107,75 +122,28 @@ def ConvertGDB(sourceFilePath, outputGDBPath, serverGDBPath, serverName, x, y, u
                     rowGroup[row[1]].append(row[0])
                 del searchCursor
                 ac.deleteRows(tableTemp)
-            logger.info('Step 3: update gdb layer include : %s' % '|'.join(rowGroup.keys()))
+
+            logger.info('update layer include : %s' % '|'.join(rowGroup.keys()))
             for key in rowGroup.keys():
                 deleteFeaturesBySelected(gdbPath, key, rowGroup[key])
-            logger.info('Step 4: update gdb complate')
-
-        # 构建临时存储gdb
-        logger.info('Step 5: build temp gdb and insert row...')
-        ac.createFileGDB(outputGDBPath, "tempdata.gdb")
-        layerFields = ac.getLayerFields(os.path.join(gdbPath, "clientdata130"))
-        fieldsMap = {}
-        for layerField in layerFields:
-            if layerField["name"] == "SHAPE@": continue
-            fieldsMap[layerField["name"]] = layerField["type"]
-        proNum = 3857
-        if convertSr.upper() != "NONE" and convertSr != "":
-            proNum = int(convertSr.split(",")[1])
-        ac.createLayer(gdbPath_temp, "tempdata", proNum, "POINT", fieldsMap)
-        ac.insertRow_Point(tempLayerPath, sourceFilePath, x, y, sourceFileFields, fileEncode, convertSr, logger)
-
-        logger.info('Step 6: temp gdb spatial join extent...')
-        ac.spatialJoin(tempLayerPath, os.path.join(gdbPath, "extent"), tempSpatialJoinPath, "JOIN_ONE_TO_ONE",
-                       "KEEP_COMMON", None, "INTERSECT", "", "")
-
 
         # 插入记录到对应的图层
-        logger.info('Step 7: temp gdb append to gdb...')
-        fields = []
-        for layerField in layerFields:
-            if layerField["name"] == "SHAPE@": continue
-            fields.append(layerField["name"])
-
-        fields.append("SHAPE@X")
-        x = (len(fields) - 1)
-        fields.append("SHAPE@Y")
-        y = (len(fields) - 1)
-        fields.append("CID")
-        fields.append("name")
-        tempCursor = ac.searchData(tempSpatialJoinPath, fields)
+        logger.info('insert tempGDB to gdb...')
         insertTableCursor = ac.getInsertCursor(tableViewPath, ["CID", "NAME"])
-        rowGroup = {}
-        for row in tempCursor:
-            id = row[-2]
-            layerName = row[-1]
-            strValue = ""
-            for fieldValue in row:
-                if type(fieldValue) == int or type(fieldValue) == float:
-                    fieldValue = str(fieldValue)
-                strValue += (fieldValue.encode('utf-8') + FIELD_DEL)
-            strValue += FIELD_DEL + "\n"
-            if rowGroup.has_key(layerName) is not True:
-                rowGroup[layerName] = []
-            rowGroup[layerName].append(strValue)
-            insertTableCursor.insertRow([id, layerName])
-        del tempCursor
-        del insertTableCursor
+        ac.setWorkSpace(gdbPath_temp)
+        for sn in ac.getFeaturesList():
+            ac.appendLayers(os.path.join(gdbPath_temp, sn), os.path.join(gdbPath, sn))  # 与正式图层合并，完成新增插入
 
-        for layerName in rowGroup.keys():
-            tempFilePath = os.path.join(outputGDBPath, layerName)
-            tempFileObj = file(tempFilePath, 'wb')
-            for lineStr in rowGroup[layerName]:
-                tempFileObj.write(lineStr)
-            tempFileObj.close()
-            ac.insertRow_Point(os.path.join(gdbPath, layerName), tempFilePath, x, y, fields, 'utf-8',
-                               "None", logger)
-            os.remove(tempFilePath)
+            searchCursor = ac.searchData(os.path.join(gdbPath_temp, sn), ["CID"])
+            for row in searchCursor:
+                insertTableCursor.insertRow([row[0], sn])
+            del searchCursor
+        del insertTableCursor
 
         shutil.rmtree(gdbPath_temp)
 
-        logger.info('Step 8: insertUpdate ** update GDB soucefile:%s  complate！' % sourceFilePath)
+        logger.info('insertUpdate ** update GDB soucefile:%s  complate！' % sourceFilePath)
+
         return True
     except Exception as e:
         logger.warning(e.message)
@@ -195,7 +163,7 @@ if __name__ == '__main__':
         x = 10  # 经度序号
         y = 11  # 纬度序号
         uniqueId = 0
-        updateModel = 'update'  # 更新模式：add\update
+        updateModel = 'add'  # 更新模式：add\update
         sourceFileFields = "CID,CITY,CNAME,CDATE,CADDRESS,CCAPITAL,CARTIFICIA,CTELEPHONE,CPHONE,CBUSITYPE,X,Y,BZ1,BZ2".split(
             ',')  # 数据源文件表头
         fileEncode = 'utf-8'

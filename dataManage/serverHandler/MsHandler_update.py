@@ -95,7 +95,11 @@ if __name__ == '__main__':
     # y = 1
     # sourceFileFields = "UID, T1, X, Y"
 
-    type = sys.argv[1]  # 业务类型
+    if sys.argv[1].upper()=='NONE':
+        type=""
+    else:
+        type=sys.argv[1]
+
     serverName = sys.argv[2]  # 数据服务名
     gdbPath = sys.argv[3]  # 转换GDB输出路径
     serverGDBPath = sys.argv[4]  # 图层模板路径

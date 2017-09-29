@@ -71,6 +71,7 @@ def ConvertGDB(sourceFilePath, outputGDBPath, serverGDBPath, serverName, x, y, u
                 sourceObj = file(sourceFilePath, 'rb')
                 fileObj = file(os.path.join(outputGDBPath, name), 'wb')
                 rowCount = 0
+                logger.info('analysis %s!' % (name))
                 try:
                     while True:
                         lineStr = sourceObj.next()
@@ -91,6 +92,7 @@ def ConvertGDB(sourceFilePath, outputGDBPath, serverGDBPath, serverName, x, y, u
                     sourceObj.close()
                     pass
                 if rowCount>0:
+                    logger.info('start insert %s' % (name))
                     ac.insertRow_Point(os.path.join(gdbPath, name), os.path.join(outputGDBPath, name), x, y,
                                        sourceFileFields, fileEncode, convertSr, logger)
                     logger.info('insert %d row to "%s" layer!' % (rowCount, name))
@@ -109,30 +111,30 @@ if __name__ == '__main__':
         logname=os.path.join(logOutputPath, "updateGDBMulti_main.log"), loglevel=3,
         callfile=__file__).get_logger()
     try:
-        # sourceFilePath = r'C:\Users\esri\Desktop\customerupdate'  # 带经纬度坐标信息文件
-        # outputGDBPath = r'D:\dataHandle\GISData\gdb\crm\clientdata'  # 转换GDB输出路径
-        # serverGDBPath = r'D:\dataHandle\GISData\arcgisserver\gdb\crm\clientdata'
-        # serverName = r'clientdata'  # 数据服务名
-        # x = 10  # 经度序号
-        # y = 11  # 纬度序号
-        # uniqueId = 0
-        # updateModel = 'add'  # 更新模式：add\update
-        # sourceFileFields = "CID,CITY,CNAME,CDATE,CADDRESS,CCAPITAL,CARTIFICIA,CTELEPHONE,CPHONE,CBUSITYPE,X,Y,BZ1,BZ2".split(
-        #     ',')  # 数据源文件表头
-        # fileEncode = 'utf-8'
-        # convertSr = 'NONE'
+        sourceFilePath = r'C:\Users\esri\Desktop\customerupdate'  # 带经纬度坐标信息文件
+        outputGDBPath = r'D:\dataHandle\GISData\gdb\crm\clientdata'  # 转换GDB输出路径
+        serverGDBPath = r'D:\dataHandle\GISData\arcgisserver\gdb\crm\clientdata'
+        serverName = r'clientdata'  # 数据服务名
+        x = 10  # 经度序号
+        y = 11  # 纬度序号
+        uniqueId = 0
+        updateModel = 'add'  # 更新模式：add\update
+        sourceFileFields = "CID,CITY,CNAME,CDATE,CADDRESS,CCAPITAL,CARTIFICIA,CTELEPHONE,CPHONE,CBUSITYPE,X,Y,BZ1,BZ2".split(
+            ',')  # 数据源文件表头
+        fileEncode = 'utf-8'
+        convertSr = '3857,3857'
 
-        sourceFilePath = sys.argv[1]  # 带经纬度坐标信息文件
-        outputGDBPath = sys.argv[2]  # 转换GDB输出路径
-        serverGDBPath = sys.argv[3]
-        serverName = sys.argv[4]  # 数据服务名
-        x = int(sys.argv[5])  # 经度序号
-        y = int(sys.argv[6])  # 纬度序号
-        uniqueId = int(sys.argv[7])
-        updateModel = sys.argv[8]  # 更新模式：add\update
-        sourceFileFields = sys.argv[9].split(',')  # 数据源文件表头
-        fileEncode = sys.argv[10]
-        convertSr = sys.argv[11]
+        # sourceFilePath = sys.argv[1]  # 带经纬度坐标信息文件
+        # outputGDBPath = sys.argv[2]  # 转换GDB输出路径
+        # serverGDBPath = sys.argv[3]
+        # serverName = sys.argv[4]  # 数据服务名
+        # x = int(sys.argv[5])  # 经度序号
+        # y = int(sys.argv[6])  # 纬度序号
+        # uniqueId = int(sys.argv[7])
+        # updateModel = sys.argv[8]  # 更新模式：add\update
+        # sourceFileFields = sys.argv[9].split(',')  # 数据源文件表头
+        # fileEncode = sys.argv[10]
+        # convertSr = sys.argv[11]
 
         logger.info('''start convert GDB...
                        source File Path:%s
